@@ -14,6 +14,7 @@
     - [Integrated Test Data Builders](#integrated-test-data-builders)
       - [atdb_TestUserBuilder](#atdb_testuserbuilder)
       - [atdb_TestAccountBuilder](#atdb_testaccountbuilder)
+      - [atdb_TestContactBuilder](#atdb_testcontactbuilder)
     - [Custom Test Data Builders](#custom-test-data-builders)
   - [License](#license)
 
@@ -146,6 +147,52 @@ new atdb_TestAccountBuilder()
   .done()
   .withAccount('Another Company')
   .set('BillingCity', 'Berlin')
+  .done()
+```
+
+#### atdb_TestContactBuilder
+
+> Available as of version 1.1.0
+
+Supports the creation of contacts.
+
+**Construction:**
+
+Use the default constructor `new atdb_TestContactBuilder()`
+
+**Configure contacts:**
+
+Use the method `withContact()` to start configuration of a single contact. Then use the various builder methods to configure the contact. Finally, call the `done()` method to finish the configuration of the contact. Continue with the next contact by calling `withContact()` again.
+
+Use the method `account()` with a `String` argument on the test contact builder to configure an embedded account associated with the contact. Alternatively, assign an account by passing the sObject to the `account()` method or by setting its Id using `accountId()`.
+
+**Example:**
+
+```java
+new atdb_TestContactBuilder()
+  .withContact()
+    .account('Test Company 1')
+    .done()
+  .salutation('Mr')
+  .firstName('Toni')
+  .lastName('Testzerker')
+  .email('toni.test@testdomain.com')
+  .phone('12345678')
+  .fax('23456789')
+  .mobilePhone('01234567')
+  .done()
+  .withContact()
+    .account('Test Company 2')
+    .set('BillingCity', 'Berlin')
+    .done()
+  .salutation('Ms')
+  .firstName('Tina')
+  .lastName('Testastic')
+  .email('tina.test@testdomain.de')
+  .phone('34567890')
+  .fax('45678901')
+  .mobilePhone('02345678')
+  .set('MailingCity', 'Berlin')
   .done()
 ```
 

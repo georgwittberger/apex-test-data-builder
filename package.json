@@ -1,7 +1,7 @@
 {
   "name": "apex-test-data-builder",
   "description": "Lightweight test support library to create test data in Salesforce Apex unit tests",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "author": "Georg Wittberger <georg.wittberger@gmail.com>",
   "homepage": "https://github.com/georgwittberger/apex-test-data-builder",
