@@ -51,7 +51,7 @@ global class atdb_TestAccountBuilder implements atdb_TestDataBuilder {
     }
 
     global atdb_TestAccountRecordBuilder recordTypeId(Id recordTypeId) {
-      account.RecordTypeId = recordTypeId;
+      account.put('RecordTypeId', recordTypeId);
       return this;
     }
   }
@@ -85,7 +85,7 @@ global class atdb_TestAccountBuilder implements atdb_TestDataBuilder {
    * @param recordTypeId Default record type Id.
    * @return Builder instance for chaining.
    */
-  global atdb_TestAccountBuilder defaultRecordTypeId(String recordTypeId) {
+  global atdb_TestAccountBuilder defaultRecordTypeId(Id recordTypeId) {
     defaultAccountRecordTypeId = recordTypeId;
     return this;
   }
